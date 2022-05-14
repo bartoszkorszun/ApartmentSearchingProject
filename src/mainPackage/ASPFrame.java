@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import gettersAndSetters.Theme;
+import panels.DetailsPanel;
+import panels.ResultsPanel;
 import panels.SearchPanel;
 
 public class ASPFrame extends JFrame{
@@ -24,7 +26,7 @@ public class ASPFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		mainPanel = new JPanel();
-		mainPanel.setBackground(Theme.theme.getBG());
+		//mainPanel.setBackground(Theme.theme.getBG());
 		
 		initGUI();
 	}
@@ -38,6 +40,8 @@ public class ASPFrame extends JFrame{
 		mainPanel.revalidate();
 		
 		mainPanel.add(SearchPanel.searchPanel);
+		mainPanel.add(ResultsPanel.resultsPanel);
+		mainPanel.add(DetailsPanel.detailsPanel);
 		
 		add(mainPanel);
 		validate();

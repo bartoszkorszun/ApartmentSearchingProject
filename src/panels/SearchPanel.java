@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import dialogs.LogInDialog;
 import gettersAndSetters.Theme;
 
 public class SearchPanel extends JPanel implements ActionListener{
@@ -26,7 +27,7 @@ public class SearchPanel extends JPanel implements ActionListener{
 		
 		setLayout(null);
 		setPreferredSize(new Dimension(1420, 50));
-		setBackground(Theme.theme.getBG());
+		//setBackground(Theme.theme.getBG());
 		setBorder(BorderFactory.createEtchedBorder());
 		
 		initGUI();
@@ -42,8 +43,11 @@ public class SearchPanel extends JPanel implements ActionListener{
 		search = new JButton("Search");
 		logInSignIn = new JButton("Log in/Sign in");
 		
-		searchField.setBounds(10, 10, 400, 30);
-		search.setBounds(420, 10, 100, 30);
+		search.addActionListener(this);
+		logInSignIn.addActionListener(this);
+		
+		searchField.setBounds(10, 10, 420, 30);
+		search.setBounds(435, 10, 112, 30);
 		logInSignIn.setBounds(1210, 10, 200, 30);
 		
 		
@@ -63,6 +67,7 @@ public class SearchPanel extends JPanel implements ActionListener{
 		
 		if(o == logInSignIn) {
 			
+			LogInDialog.logInDialog.setVisible(true);
 		}
 	}
 }
