@@ -26,7 +26,7 @@ public class ASPFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		mainPanel = new JPanel();
-		//mainPanel.setBackground(Theme.theme.getBG());
+		mainPanel.setBackground(Theme.theme.getBG());
 		
 		initGUI();
 	}

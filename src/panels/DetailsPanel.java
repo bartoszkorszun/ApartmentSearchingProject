@@ -21,7 +21,7 @@ public class DetailsPanel extends JPanel{
 		
 		setLayout(null);
 		setPreferredSize(new Dimension(865, 710));
-		//setBackground(Theme.theme.getBG());
+		setBackground(Theme.theme.getBG());
 		setBorder(BorderFactory.createEtchedBorder());
 		
 		initGUI();

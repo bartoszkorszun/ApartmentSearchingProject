@@ -27,7 +27,7 @@ public class SearchPanel extends JPanel implements ActionListener{
 		
 		setLayout(null);
 		setPreferredSize(new Dimension(1420, 50));
-		//setBackground(Theme.theme.getBG());
+		setBackground(Theme.theme.getBG());
 		setBorder(BorderFactory.createEtchedBorder());
 		
 		initGUI();
@@ -63,6 +63,7 @@ public class SearchPanel extends JPanel implements ActionListener{
 		
 		if(o == search) {
 			
+			System.out.println("Searching");
 		}
 		
 		if(o == logInSignIn) {

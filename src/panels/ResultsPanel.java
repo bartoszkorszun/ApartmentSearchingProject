@@ -21,7 +21,7 @@ public class ResultsPanel extends JPanel{
 		
 		setLayout(null);
 		setPreferredSize(new Dimension(550, 710));
-		//setBackground(Theme.theme.getBG());
+		setBackground(Theme.theme.getBG());
 		setBorder(BorderFactory.createEtchedBorder());
 		
 		initGUI();
