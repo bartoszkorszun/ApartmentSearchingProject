@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -117,25 +120,6 @@ public class SignInPanel extends JPanel implements ActionListener{
 		if(o == signInButton) {
 			
 			checkData();
-			/*
-			JSONObject jsonObject = new JSONObject();
-			try {
-				jsonObject.put("surname", surnameArea.getText());
-				jsonObject.put("name", nameArea.getText());
-				jsonObject.put("email", emailArea.getText());
-				jsonObject.put("login", loginArea.getText());
-				jsonObject.put("password", passwordArea.getText());
-				if(phoneArea.getText() == "") {
-					jsonObject.put("phone", "null");
-				}else {
-					jsonObject.put("phone", phoneArea.getText());
-				}
-				json.JSON.jsonArray.put(jsonObject);
-			} catch (JSONException e1) {
-				e1.printStackTrace();
-			}
-			System.out.println(json.JSON.jsonArray);
-			*/
 		}
 	}
 	
@@ -218,7 +202,7 @@ public class SignInPanel extends JPanel implements ActionListener{
 				isEE = false;
 			}
 			
-			System.out.println("Check if login exists");
+			
 			lE = true;
 		}
 		
@@ -244,6 +228,34 @@ public class SignInPanel extends JPanel implements ActionListener{
 		}else {
 		
 			System.out.println("Check if it is phone number");
+		}
+		
+		if(sE && nE && eE && lE && paE && phE) {
+			
+			JSONObject jsonObject = new JSONObject();
+			try {
+				jsonObject.put("surname", surnameArea.getText());
+				jsonObject.put("name", nameArea.getText());
+				jsonObject.put("email", emailArea.getText());
+				jsonObject.put("login", loginArea.getText());
+				jsonObject.put("password", passwordArea.getText());
+				if(phoneArea.getText() == "") {
+					jsonObject.put("phone", "null");
+				}else {
+					jsonObject.put("phone", phoneArea.getText());
+				}
+				json.JSON.jsonArray.put(jsonObject);
+			} catch (JSONException e1) {
+				e1.printStackTrace();
+			}
+			
+			try {
+				BufferedWriter addToBase = new BufferedWriter(new FileWriter("C:/ProgramData/ASP/base.json", true));
+				addToBase.append(jsonObject.toString());
+				addToBase.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		revalidate();
