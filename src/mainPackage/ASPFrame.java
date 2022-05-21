@@ -28,6 +28,8 @@ public class ASPFrame extends JFrame{
 		mainPanel = new JPanel();
 		mainPanel.setBackground(Theme.theme.getBG());
 		
+		json.JSON.jsonBase();
+		
 		initGUI();
 	}
 	
